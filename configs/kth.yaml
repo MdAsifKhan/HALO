@@ -1,0 +1,88 @@
+data: kth
+seed: 314159
+cuda: True
+gpu_ids: 
+  - 0
+  - 0
+  - 0
+num_workers: 4
+test_epoch: 1000
+
+
+
+kth:
+  rows: 64
+  columns: 64
+  channels: 1
+  timesteps: 10
+  minsteps: 10
+  sampledelay: 3
+  tanh: True
+  nm_seq: ???
+  actions:
+    - boxing
+    - handclapping
+    - handwaving
+    - jogging
+    - running
+    - walking
+  #path: /home/asif/workspace/TangentDS/datasets/KTH
+  path: /disk/scratch2/asif/data/KTH
+
+
+trainer:
+ batch_size_train: 16
+ batch_size_test: 16
+ num_epochs: 1000
+ PretrainEpochs: 80
+ test_every: 20
+ save_every: 20
+ recon_term: 1
+ resume: False
+ resume_epoch: 1
+ BetaV: 1
+ BetaV1: 1
+ BetaZ: 1
+ BetaT: 1
+ annealkl: False
+ reconloss: l2
+ lossVrecon: False
+ temporalLoss: True
+ actions: ???
+ nm_seq: ???
+
+ model:
+  condnSonU: True
+  useZ: True
+  uselstmZ: True
+  projection: True
+  pretrain: False
+  sequential: ???
+  qv_x: qv_f_x1toT
+  v_dim: 72
+  h_dim: 2048
+  z_dim: 512
+  network: conv
+  decoder: conv
+  coords: none
+  L: 8
+  u_dim: ???
+  channels: ???
+  width: ???
+  height: ???
+  timesteps: ???
+  dynamics: Hamiltonian
+
+ optim:
+   lamda_gp: 10
+   lr: 0.0002
+   lr_policy: step
+   step_size: 200
+   gamma: 0.1
+   beta1: 0.5
+   beta2: 0.999
+
+
+output_model: /disk/scratch2/asif/workspace/HALO/model
+output_results: /disk/scratch2/asif/workspace/HALO/results
+
