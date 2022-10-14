@@ -5,7 +5,7 @@
 This repo provides the official implementation of [HALO](https://arxiv.org/abs/2112.01641)
 
 
-# [HALO Framework] (./figures/flowdiag.pdf)
+# [HALO Framework](./figures/flowdiag.pdf)
 
 
 # Setup Conda Environment
